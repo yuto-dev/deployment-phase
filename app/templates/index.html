@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Classification Results</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <h1>Classification Results</h1>
+    <button id="runInference">Run Inference</button>
+    <div id="results"></div>
+
+    <script>
+        $('#runInference').click(function() {
+            $.getJSON('/infer', function(data) {
+                $('#results').html(
+                    'ONNX Accuracy: ' + data.accuracy_onnx + '<br>' +
+                    'ONNX Average Latency: ' + data.avg_latency_onnx + ' seconds<br>' +
+                    'PyTorch Accuracy: ' + data.accuracy_pt + '<br>' +
+                    'PyTorch Average Latency: ' + data.avg_latency_pt + ' seconds'
+                );
+            });
+        });
+    </script>
+</body>
+</html>

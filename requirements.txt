@@ -1,0 +1,8 @@
+flask
+onnxruntime
+onnx
+torch
+numpy
+pillow
+psycopg2-binary
+torchvision
